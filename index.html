@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raghavendra Sai Teja | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --accent-color: #e74c3c;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: black;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(
+          0deg,
+          var(--night-blue-color),
+          var(--primary-black-color)
+        );
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .title {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .social-icons {
+        margin: 1rem 0;
+      }
+
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        color: var(--primary-color);
+        transform: translateY(-10px);
+      }
+
+      nav {
+        background-color: #e74c3c;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: whitesmoke;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .logo span {
+        color: var(--dark-color);
+      }
+
+      section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: whitesmoke;
+        display: ;
+        position: relative;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 2rem;
+      }
+
+      .about-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #e74c3c;
+      }
+
+      .about-text p {
+        margin-bottom: 1rem;
+        font-size: 18px;
+        color: white;
+      }
+
+      .about-image {
+        flex: 1;
+        min-width: 500px;
+        text-align: center;
+      }
+      .about-image img {
+        max-width: 500px;
+        max-height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-category {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-10px);
+      }
+
+      .skill-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .skill-list {
+        list-style: none;
+      }
+
+      .skill-list li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .skill-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+      }
+
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10%);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .project-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
+      }
+
+      .project-info {
+        padding: 1.5rem;
+      }
+
+      .project-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+      }
+
+      .project-info p {
+        margin-bottom: 1rem;
+        color: #666;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-links a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .project-links .demo {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .project-links .code {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+      }
+
+      .project-links a:hover {
+        opacity: 0.9;
+        transform: translateY(-10%);
+      }
+
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+        color: white;
+      }
+
+      .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+      }
+
+      .contact-details {
+        list-style: none;
+      }
+
+      .contact-details li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-details i {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-right: 1rem;
+        width: 30px;
+        text-align: center;
+      }
+
+      .contact-form {
+        flex: 1;
+        min-width: 150px;
+        min-height: 80px;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark-color);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      footer {
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .footer-links li {
+        margin: 0 1rem;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .copyright {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 768px) {
+        .nav-container {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .nav-links {
+          margin-top: 1rem;
+        }
+
+        .nav-links li {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-text {
+          padding-right: 0;
+          margin-bottom: 2rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+      }
+
+      /* Animation classes */
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.6s;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>Basani Raghavendra Sai Teja</h1>
+        <p class="title">Electrical Engineer & Full-Stack Developer</p>
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/RaghavendraSaitejaBasani"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:raaghavsaii@gmail.com"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a href="tel:9390921929"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-container">
+        <div class="logo"><span>I'm </span><span class="typing"></span></div>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="about" class="fade-in">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Electrical Engineer with a Passion for Technology</h3>
+          <p>
+            I'm a highly motivated final-year B.Tech student in Electrical and
+            Electronics Engineering with a strong foundation in Data Structures
+            and Algorithms (DSA), and hands-on experience in full-stack web
+            development using React, Node.js, and JavaScript.
+          </p>
+          <p>
+            My interdisciplinary background allows me to approach problems from
+            multiple perspectives, combining my engineering knowledge with
+            software development skills to create innovative technological
+            solutions.
+          </p>
+          <p>
+            I'm eager to apply my problem-solving skills and passion for
+            technology to contribute to dynamic software development or IT roles
+            while continuing to grow professionally.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="profile\profile.jpg"
+            alt="Raghavendra working on a project with both electrical components and a laptop"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="fade-in delay-1">
+      <div class="section-title">
+        <h2>My Skills</h2>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Web Technologies</h3>
+          <ul class="skill-list">
+            <li>HTML & CSS</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Databases</h3>
+          <ul class="skill-list">
+            <li>MySQL</li>
+            <li>MongoDB</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <ul class="skill-list">
+            <li>Git & GitHub</li>
+            <li>VS Code</li>
+            <li>MATLAB</li>
+            <li>SolidWorks</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <ul class="skill-list">
+            <li>Problem Solving</li>
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Adaptability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="fade-in delay-2">
+      <div class="section-title">
+        <h2>My Projects</h2>
+      </div>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="cnc laser machine\Screenshot_19-8-2025_122937_.jpeg"
+              alt="Smart CNC Laser Sheet Cutting Machine with detailed mechanical components"
+            />
+          </div>
+          <div class="project-info">
+            <h3>Smart CNC Laser Sheet Cutting Machine</h3>
+            <p>
+              Led the comprehensive mechanical design, structural analysis, and
+              simulation validation of a gantry-based CNC laser sheet cutting
+              machine using SolidWorks.
+            </p>
+            <div class="project-links">
+              <a href="#" class="demo">Live Demo</a>
+              <a href="#" class="code">View Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img
+              src="data:image/webp;base64,UklGRtADAABXRUJQVlA4IMQDAABwLgCdASqyAeoAPp1OpE0lpCOiItcYULATiWdu4XN3++q/x/zPM9DFd/cy+eX077azzAfq76rHod9AD9RuvC9FDy3/aeyKUNUPQjRxV5q08rzVp5XmrTyvNWnleatPK81aeV5q03tYFP5TgqximdnYqAB3r+V5q08rzQ37H3Zq8IRCNihsfsn8oBLkPR3r+V5q08rzVQgQ5geGnLIWSnHmRqKFMoCNHFXmrTyvNVCBDpTK7yjehQ0OX5HLD38rzVp5XmrTdrmk5D48VwtmSyxJvLIqn1hCNHFXmrTyvJolwGhXbsog6yMcCm/j8D0I0cVeatPEMEx3NdsIPYSwGxmEm/j8D0I0cVeatPEMEx5pOTTsd6xezKk4HoKI4q81aeV5q08QwS818zf2vLhEJeVhxfUB6EaOKvNWniGGBwkMaYrNVJVIkIm5sybOMMs84tDpq08rzVp6ug1MDlzi0OmrTyvNWnleatPK81aeVt5+t0/A9CNHFXmrTyvNAAD+/uEQAAAbkWAfkRXFFvB7GsoBAyCFaB27YQ41i+TvFeF3Fsnf+0g93UCT72MPvUZassb/rq95/3z9dweWXWLM5htin6B4CkBpvROJN4HYK+VA28c06OEOzk+xxD9WrD9xTv59ttAdNDMwC+SqdZdLn99bMxcfn8yQWQ9WbkOZ9RjH9Jq3DG9bFTxdngiUDwBVXo833XEpTU4DSwuq5DZ+8+gK5ut2kdOaSdGZfpde4HOeLLssyhrNuoNB3rQD0VVn6pPa3kbBNXifKdqEgf3zNPbRILRHl90GerKlv9fdRD7vSGgvJsCUBZhyZ7J54MM/poCwkkT+Q0MSxM75MJsYiml2r6nNIgvpHt2LbtG7Q3YYsSNnhBUikcC1RKVPDk3IUuHOaMppOzB+VNryvSFISgPGoWasQ7wl4+tQhwF0Ka58NFDoQZfAXvCusBfna/ic6/fCPO0TM1FQYXPBxC01g/L6sg6vcwCKB2iHwjiAeni3j0CmFNVrzFHcSgCmbWf9sSm2an9uhgpiJ/u1wHHP6nbg4R5nfCTL9AmH71ClAK0Uzu1pbobVu95SnuN4rmVI0X7KAV40va5/09XChcGhDiHglGIV+gLBgDb8YwAXWg+S5gVfGD9M5Cl1riPgdD8WlA4AjScuMbQ8KhhwL6+0FuKLR86ZU84ZgYDSOrGWtBkmnL10K5u62DrXn13/E8ZIXx/1ML29g7pVNi/8ri/zMmQBTBmkAIVrrBYmHx6Erot9YQtTQD87OgC68dtAAAAa1F0IAAAA"
+              alt="Netflix clone interface showing movie thumbnails in a grid layout"
+            />
+          </div>
+          <div class="project-info">
+            <h3>Netflix Clone</h3>
+            <p>
+              Developed a responsive web application mimicking Netflix's UI/UX
+              using HTML, CSS, and JavaScript with dynamic movie browsing and
+              category-based content display.
+            </p>
+            <div class="project-links">
+              <a href="#" class="demo">Live Demo</a>
+              <a href="#" class="code">View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in delay-3">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <ul class="contact-details">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Hyderabad, Telangana, India</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+91 9390921929</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>raaghavsaii@gmail.com</span>
+            </li>
+          </ul>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/RaghavendraSaitejaBasani"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://github.com/yourusername" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="mailto:raaghavsaiigmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p class="copyright">
+          &copy; 2023 Basani Raghavendra Sai Teja. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Form submission handling (would be connected to backend in real implementation)
+      const form = document.querySelector("form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for your message! In a real implementation, this would send your message to my inbox."
+          );
+          form.reset();
+        });
+      }
+
+      // Animation on scroll
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      fadeElements.forEach((element) => {
+        element.style.opacity = 0;
+        element.style.transform = "translateY(20px)";
+        element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(element);
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      const typed = new Typed(".typing", {
+        strings: [
+          "Raghavendra Saiteja",
+          "a Developer !",
+          "an Engineer !",
+          "a learner !",
+        ],
+        typeSpeed: 50,
+        backSpeed: 50,
+        backDelay: 1000,
+        loop: true,
+        smartBackspace: false,
+      });
+    </script>
+  </body>
+</html>
